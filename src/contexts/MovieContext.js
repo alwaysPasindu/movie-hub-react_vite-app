@@ -5,7 +5,7 @@ import axios from "axios"
 
 export const MovieContext = createContext()
 
-const API_KEY = "dd95f0a6768c33fbcdf80034ffaf960a"
+const API_KEY = process.env.REACT_APP_TMDB_API_KEY
 const BASE_URL = "https://api.themoviedb.org/3"
 
 export const MovieProvider = ({ children }) => {
