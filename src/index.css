@@ -1,8 +1,13 @@
 body {
   margin: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 .movie-grid {
@@ -13,154 +18,31 @@ body {
 }
 
 .movie-card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  transition: transform 0.3s ease;
 }
 
-.movie-card-media {
-  height: 300px;
+.movie-card:hover {
+  transform: scale(1.05);
 }
 
-.movie-card-content {
-  flex-grow: 1;
+.trailer-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.search-container {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  position: sticky;
-  top: 64px;
-  z-index: 10;
-}
-
-.search-bar {
+.trailer-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 600px;
+  height: 100%;
 }
 
 .infinite-scroll-component {
   overflow: visible !important;
-}
-
-.movie-details-container {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.movie-backdrop {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.movie-poster {
-  width: 300px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.movie-info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.movie-genres {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.cast-list {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  padding: 16px 0;
-}
-
-.cast-item {
-  min-width: 140px;
-  text-align: center;
-}
-
-.cast-image {
-  width: 120px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.trailer-container {
-  margin: 24px 0;
-}
-
-.login-container {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/0efe6360-4f6d-4b10-beb6-81e0762cfe81/LK-en-20231030-popsignuptwoweeks-perspective_alpha_website_large.jpg");
-  background-size: cover;
-}
-
-.login-form {
-  width: 100%;
-  max-width: 450px;
-  padding: 60px 68px 40px;
-  background-color: rgba(0, 0, 0, 0.75);
-  border-radius: 4px;
-}
-
-.login-logo {
-  margin-bottom: 28px;
-  text-align: center;
-}
-
-.login-title {
-  color: white;
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 28px;
-}
-
-.login-input {
-  margin-bottom: 16px;
-}
-
-.login-button {
-  margin-top: 24px;
-  height: 48px;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-@media (max-width: 768px) {
-  .movie-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
-
-  .movie-card-media {
-    height: 225px;
-  }
-
-  .movie-details-container {
-    padding: 10px;
-  }
-
-  .movie-backdrop {
-    height: 200px;
-  }
-
-  .movie-poster {
-    width: 200px;
-  }
-
-  .login-form {
-    padding: 30px 20px;
-  }
 }
