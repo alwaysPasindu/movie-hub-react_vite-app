@@ -1,47 +1,43 @@
-"use client"
-
-import { useContext } from "react"
-import { Box, Typography, CircularProgress, Alert } from "@mui/material"
+import { Grid, Box, Typography, CircularProgress } from "@mui/material"
 import InfiniteScroll from "react-infinite-scroll-component"
 import MovieCard from "./MovieCard"
-import { MovieContext } from "../context/MovieContext"
 
-const MovieGrid = ({ movies, title, infiniteScroll = false }) => {
-  const { loading, error, loadMore, hasMore } = useContext(MovieContext)
-
+const MovieGrid = ({ movies, loading, error, hasMore, loadMore, title }) => {
   if (error) {
     return (
-      <Box sx={{ p: 2 }}>
-        <Alert severity="error">{error}</Alert>
+      <Box sx={{ p: 3, textAlign: "center" }}>
+        <Typography color="error" variant="h6">
+          {error}
+        </Typography>
       </Box>
     )
   }
 
-  if (!movies || movies.length === 0) {
+  if (loading && movies.length === 0) {
     return (
-      <Box sx={{ p: 2, textAlign: "center" }}>
+      <Box sx={{ display: "flex", justifyContent: "center", p: 3 }}>
+        <CircularProgress />
+      </Box>
+    )
+  }
+
+  if (movies.length === 0) {
+    return (
+      <Box sx={{ p: 3, textAlign: "center" }}>
         <Typography variant="h6">No movies found</Typography>
       </Box>
     )
   }
 
-  const renderMovies = () => (
-    <div className="movie-grid">
-      {movies.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
-    </div>
-  )
-
   return (
-    <Box sx={{ mb: 4 }}>
+    <Box sx={{ p: 2 }}>
       {title && (
-        <Typography variant="h4" sx={{ p: 2, fontWeight: "bold" }}>
+        <Typography variant="h5" component="h2" gutterBottom>
           {title}
         </Typography>
       )}
 
-      {infiniteScroll ? (
+      {loadMore ? (
         <InfiniteScroll
           dataLength={movies.length}
           next={loadMore}
@@ -52,21 +48,27 @@ const MovieGrid = ({ movies, title, infiniteScroll = false }) => {
             </Box>
           }
           endMessage={
-            <Box sx={{ textAlign: "center", p: 2 }}>
-              <Typography variant="body1">No more movies to load</Typography>
-            </Box>
+            <Typography textAlign="center" sx={{ p: 2 }}>
+              You've seen all movies!
+            </Typography>
           }
         >
-          {renderMovies()}
+          <Grid container spacing={3}>
+            {movies.map((movie) => (
+              <Grid item key={movie.id} xs={6} sm={4} md={3} lg={2}>
+                <MovieCard movie={movie} />
+              </Grid>
+            ))}
+          </Grid>
         </InfiniteScroll>
       ) : (
-        renderMovies()
-      )}
-
-      {loading && !infiniteScroll && (
-        <Box sx={{ display: "flex", justifyContent: "center", p: 2 }}>
-          <CircularProgress />
-        </Box>
+        <Grid container spacing={3}>
+          {movies.map((movie) => (
+            <Grid item key={movie.id} xs={6} sm={4} md={3} lg={2}>
+              <MovieCard movie={movie} />
+            </Grid>
+          ))}
+        </Grid>
       )}
     </Box>
   )
