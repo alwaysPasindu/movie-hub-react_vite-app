@@ -1,34 +1,32 @@
 "use client"
 
 import { useContext } from "react"
-import { Container, Typography, Box, Button } from "@mui/material"
-import { ArrowBack } from "@mui/icons-material"
-import { useNavigate } from "react-router-dom"
+import { Container, Typography, Box, Button, Divider } from "@mui/material"
+import { Link } from "react-router-dom"
+import Navbar from "../components/Navbar"
 import MovieGrid from "../components/MovieGrid"
-import { MovieContext } from "../context/MovieContext"
+import { MovieContext } from "../contexts/MovieContext"
 
 const Favorites = () => {
   const { favorites } = useContext(MovieContext)
-  const navigate = useNavigate()
-
-  const handleBackClick = () => {
-    navigate("/")
-  }
 
   return (
-    <Container maxWidth="xl">
-      <Box sx={{ display: "flex", alignItems: "center", my: 2 }}>
-        <Button startIcon={<ArrowBack />} onClick={handleBackClick}>
-          Back to Home
-        </Button>
-      </Box>
+    <>
+      <Navbar />
+      <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
+        <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+          <Typography variant="h4" component="h1">
+            My Favorite Movies
+          </Typography>
+          <Button component={Link} to="/" variant="contained" color="primary" sx={{ ml: "auto" }}>
+            Discover More Movies
+          </Button>
+        </Box>
+        <Divider sx={{ mb: 3 }} />
 
-      <Typography variant="h4" sx={{ p: 2, fontWeight: "bold" }}>
-        My Favorite Movies
-      </Typography>
-
-      <MovieGrid movies={favorites} />
-    </Container>
+        <MovieGrid movies={favorites} loading={false} error={null} title="" />
+      </Container>
+    </>
   )
 }
 
