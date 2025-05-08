@@ -22,8 +22,8 @@ export const AuthProvider = ({ children }) => {
   }, [isAuthenticated, user])
 
   const login = (username, password) => {
-    // In a real app, you would validate credentials with an API
-    // For this demo, we'll just check if both fields are filled
+    // In a real app, you would validate credentials against a backend
+    // For this demo, we'll accept any non-empty username/password
     if (username && password) {
       setUser({ username })
       setIsAuthenticated(true)
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
     setUser(null)
     setIsAuthenticated(false)
     localStorage.removeItem("user")
-    localStorage.removeItem("isAuthenticated")
+    localStorage.setItem("isAuthenticated", "false")
   }
 
   return <AuthContext.Provider value={{ isAuthenticated, user, login, logout }}>{children}</AuthContext.Provider>
