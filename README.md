@@ -125,7 +125,20 @@ npm run preview   # preview production build
 
 ## 📸 Screenshots
 
-> Add relevant screenshots or screen recordings here (Home page, Dark mode, Details page, Trailer player, etc.)
+<img width="1582" alt="image" src="https://github.com/user-attachments/assets/84b0d1e6-af00-4cf6-b7b7-d2954a66e565" />
+<img width="1582" alt="image" src="https://github.com/user-attachments/assets/941607b5-f0a8-4db2-941d-61ab29f232cf" />
+<img width="1582" alt="image" src="https://github.com/user-attachments/assets/a17f5c1c-a6df-4e7c-a88c-3886636e8269" />
+<img width="1582" alt="image" src="https://github.com/user-attachments/assets/56bdaa04-9eb8-4e14-a20e-fc237d280016" />
+<img width="1582" alt="image" src="https://github.com/user-attachments/assets/d26a51a7-af27-4e4f-b687-fd10b7dfc35b" />
+<img width="1582" alt="image" src="https://github.com/user-attachments/assets/dfddfe6d-8728-4326-bfab-da7ee949cb3d" />
+<img width="1582" alt="image" src="https://github.com/user-attachments/assets/f014013a-e12a-4d8c-a1de-6e0eb5ee3169" />
+<img width="1582" alt="image" src="https://github.com/user-attachments/assets/1a03f044-943f-4d44-864c-1ecee02fcb31" />
+
+
+
+
+
+
 
 ---
 
@@ -139,7 +152,7 @@ npm run preview   # preview production build
 
 ## 🧠 Author
 
-* 👤 Developed by \Pasindu Dilshan 
+* 👤 Developed by Pasindu Dilshan 
 * 🔗 Portfolio: https://www.pasindu.tech
 * 📧 Email: [always.pasindu@gmail.com](mailto:always.pasindu@gmail.com)
 
