@@ -74,6 +74,9 @@ MOVIE-EXPLORER-REACT-APP/
 ├── package-lock.json
 
 ````
+---
+
+## 📦 Demo Video : https://shorturl.at/iMtpO
 
 ---
 
